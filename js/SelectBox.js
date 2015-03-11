@@ -50,6 +50,7 @@
 			customScrollbar: true,
 			zIndex: 100,
 			changeCallback: function(val) { },
+            openCallback: function(element) {},
 			truncate: function(str) {return str;},
 			scrollOptions: {}
 		}, options);
@@ -353,6 +354,9 @@
 
 			$customSelect.css({"z-index": cfg.zIndex + 1});
 			_isOpen = true;
+            if (cfg.openCallback) {
+                cfg.openCallback(this)
+            }
 		};
 
 		/**
